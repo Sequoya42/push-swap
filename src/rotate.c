@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 23:11:41 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/17 22:50:05 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/18 07:16:54 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void			ft_ra(void)
 	S->lst = S->lst->next;
 	S->lst->prev = NULL;
 	S->last->prev = tmp;
+	S->oper = ft_strjoin(S->oper, "ra ");
 }
 
 void			ft_rb(void)
@@ -48,10 +49,12 @@ void			ft_rb(void)
 	S->lb->prev->next = NULL;
 	S->lb_last = S->lb_last->prev;
 	S->lb->next = tmp;
+	S->oper = ft_strjoin(S->oper, "rb ");
 }
 
 void			ft_rr(void)
 {
 	ft_ra();
 	ft_rb();
+	S->oper = ft_strjoin(S->oper, "rr ");
 }

@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 22:14:36 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/17 19:46:31 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/18 07:18:47 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void			ft_pa(void)
 		S->lst = new;
 	}
 	ft_pa_next();
+	S->oper = ft_strjoin(S->oper, "pa ");
 }
 
 static void		ft_pb_next(void)
@@ -86,4 +87,5 @@ void			ft_pb(void)
 		S->lb_last = new;
 	}
 	ft_pb_next();
+	S->oper = ft_strjoin(S->oper, "pb ");
 }

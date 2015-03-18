@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/12 17:21:57 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/18 04:25:31 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/18 07:22:27 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,23 @@ t_swap		*singleton(void)
 	return (&swap);
 }
 
-void		ft_testa(void)
+int			ft_testa(void)
 {
 	int i = 0;
+	ft_pb();
+	ft_pb();
+	ft_pb();
 	print_list();
-	while (i++ < 33)
+	while (i++ < 4)
 	{
-		ft_pb();
-		ft_pb();
-		ft_pa();
-		ft_ss();
+		if (check_solved())
+			return (1);
+		ft_check_pa();
+		ft_putnbrendl(S->move->nb);
 		print_list();
+		ft_putendl(S->oper);
 	}
+	return (0);
 }
 
 int			main(int ac, char **av)
@@ -47,9 +52,12 @@ int			main(int ac, char **av)
 		return (-1);
 	add_link();
 	print_list();
-	ft_resolve();
+	if (check_solved())
+	{
+		ft_putendl("Already in the right order");
+		return (1);
+	}
+	while (ft_resolve() != 1)
 	print_list();
-	write(1, S->oper, ft_strlen(S->oper) -1);
-	ft_putchar('\n');
 	return (0);
 }
