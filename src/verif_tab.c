@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/12 17:43:26 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/17 19:50:01 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/20 17:02:40 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ static int			verif_itoa(int i)
 		++l;
 	}
 	if (ft_atoi(tmp) > 21474)
-		return (ft_error(NULL, NULL, "Unvalid String"));
+		return (ft_error(NULL, NULL, "Error"));
 	if (S->tab[i][0] == '-' ? ft_atoi(S->tab[i] + 6) > 83648 :
 		ft_atoi(S->tab[i] + 5) > 83647)
-		return (ft_error(NULL, NULL, "Unvalid String"));
+		return (ft_error(NULL, NULL, "Error"));
 	return (0);
 }
 
@@ -42,7 +42,7 @@ static int			ft_unvalid(int i)
 	if (MP)
 		j++;
 	if (MP ? ft_strlen(S->tab[i]) > 11 : ft_strlen(S->tab[i]) > 10)
-		return (ft_error(NULL, NULL, "Unvalid String"));
+		return (ft_error(NULL, NULL, "Error"));
 	else if (MP ? ft_strlen(S->tab[i]) == 11 : ft_strlen(S->tab[i]) == 10)
 	{
 		if ((verif_itoa(i)) == -1)
@@ -51,7 +51,7 @@ static int			ft_unvalid(int i)
 	while (S->tab[i][j])
 	{
 		if (!ft_isdigit(S->tab[i][j]))
-			return (ft_error(NULL, NULL, "Unvalid String"));
+			return (ft_error(NULL, NULL, "Error"));
 		++j;
 	}
 	return (0);
@@ -65,7 +65,7 @@ int					ft_doublons(int i, char **tmp)
 	while (tmp[l])
 	{
 		if (!ft_strcmp(S->tab[i], tmp[l]))
-			return (ft_error(NULL, NULL, "Unvalid String, doublons"));
+			return (ft_error(NULL, NULL, "Error"));
 		l++;
 	}
 	return (0);

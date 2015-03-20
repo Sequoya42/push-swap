@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/11 18:10:33 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/18 06:15:57 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/20 22:04:20 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct		s_lst	t_lst;
 typedef struct		s_swap
 {
 	int				min;
+	int				nepa;
 	char			*oper;
 	char			**tab;
 	t_lst			*lst;
@@ -31,7 +32,6 @@ typedef struct		s_swap
 	t_lst			*lb;
  	t_lst			*first_b; 
   	t_lst			*lb_last;
-  	t_lst			*lv;
   	t_lst			*move;
  }					t_swap;
 
@@ -61,9 +61,13 @@ void				ft_rra(void);
 void				ft_rrb(void);
 void				ft_rrr(void);
 
+void				ft_check_pb(void);
 void				ft_check_pa(void);
 void				ft_get_min(void);
+void				print_step(void);
+
 int					ft_resolve(void);
-int					check_solved(void);		
+int					check_solved(void);
+int					ft_check_rev(void);
 
 #endif

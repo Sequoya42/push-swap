@@ -6,7 +6,7 @@
 #    By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/12 17:20:35 by rbaum             #+#    #+#              #
-#    Updated: 2015/03/18 06:14:40 by rbaum            ###   ########.fr        #
+#    Updated: 2015/03/19 16:27:15 by rbaum            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -30,7 +30,7 @@ INC_PATH =		./inc/
 SRC_NAME =		main.c				verif_tab.c				add_link.c\
 				swap.c				rotate.c				rev_rotate.c\
 				push.c				resolve.c				ft_check.c\
-				short_cmd.c\
+				short_cmd.c			part_one.c\
 
 
 OBJ_NAME =		$(SRC_NAME:.c=.o)

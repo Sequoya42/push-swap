@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 22:14:36 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/18 07:18:47 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 00:12:51 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void		ft_pa_next(void)
 		S->lb_last = NULL;
 		S->lb = NULL;
 	}
+	S->nepa += 1;
 }
 
 void			ft_pa(void)
@@ -63,6 +64,7 @@ static void		ft_pb_next(void)
 		S->last = NULL;
 		S->lst = NULL;
 	}
+	S->nepa -= 1;
 }
 
 void			ft_pb(void)

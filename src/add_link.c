@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 17:56:31 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/18 07:22:16 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/20 17:49:24 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,28 @@ void			add_link(void)
 	}
 }
 
+void			print_step(void)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	ft_putstr(KMAG);
+	ft_putchar('\n');
+	write(1, S->oper, ft_strlen(S->oper) -1);
+	ft_putchar('\n');
+	ft_putstr(KCYN);
+	ft_putstr("Number of operations : ");
+	while (S->oper[i])
+	{
+		if (S->oper[i] == ' ')
+			++j;
+		++i;
+	}
+	ft_putnbrendl(j);
+}
+
 void			print_list(void)
 {
 	t_lst		*tmp;
@@ -72,7 +94,9 @@ void			print_list(void)
 		ft_putnbrn(tmp->nb);
 		tmp = tmp->next;
 	}
+	ft_putstr(KMAG);
 	ft_putchar('\n');
 	write(1, S->oper, ft_strlen(S->oper) -1);
 	ft_putchar('\n');
+
 }

@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/17 00:45:01 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/18 07:18:16 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/19 17:05:24 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ void            ft_rrr(void)
 {
     ft_rra();
     ft_rrb();
+	S->oper = ft_strsub(S->oper, 0, ft_strlen(S->oper) - 6);
 	S->oper = ft_strjoin(S->oper, "rrr ");
 }
