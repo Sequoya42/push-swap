@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/18 06:11:23 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 22:55:05 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 23:23:00 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,15 @@ void		ft_check_sub_pb(int i, t_lst *tmp)
 		while (tmp != S->lst)
 		{
 			if (i < (S->nepa / 2))
+			{
 				ft_rra();
+				add_oper("rra ");
+			}
 			else
+			{
 				ft_ra();
+				add_oper("ra ");
+			}
 		}
 		ft_pb();
 		return ;

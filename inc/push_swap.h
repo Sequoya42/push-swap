@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/11 18:10:33 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 22:56:52 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 23:20:41 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct		s_swap
 	int				nepa;
 	int				count;
 	char			**tab;
+	t_oper			*oper;
+	t_oper			*last_oper;
 	t_lst			*lst;
  	t_lst			*first; 
   	t_lst			*last; 

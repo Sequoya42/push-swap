@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/12 17:21:57 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 22:53:26 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 23:27:33 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,10 @@ int			main(int ac, char **av)
 	if (ft_init_all() == -1)
 		return (-1);
 	print_list();
-//	int i = 0;
 	while (ft_resolve() != 1)
+		ft_putendl(S->last_oper->s);//print_list();
 	print_list();
 	print_step();
-//	print_list();
 	return (0);
 }
 

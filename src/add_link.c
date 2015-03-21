@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 17:56:31 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 22:57:34 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 23:25:51 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,25 @@ void			add_link(void)
 	}
 }
 
-/* void			add_oper(char *s) */
-/* { */
-/* 	t_oper		*tmp; */
-/* 	t_oper		*new; */
+void			add_oper(char *s)
+{
+//	t_oper		*tmp;
+	t_oper		*new;
 
-/* 	return ; */
-/* 	if (!(new = malloc(sizeof(t_oper)))) */
-/* 		return ; */
-/* 	new->s = s; */
-/* 	new->next = NULL; */
-/* 	if (S->oper == NULL) */
-/* 		S->oper = new; */
+	if (!(new = malloc(sizeof(t_oper))))
+		return ;
+	new->s = s;
+	new->next = NULL;
+	if (S->oper == NULL)
+	{
+		S->oper = new;
+		S->last_oper = new;
+	}
+	else
+	{
+		S->last_oper->next = new;
+		S->last_oper = S->last_oper->next;
+	}
 /* 	else */
 /* 	{ */
 /* 		tmp = S->oper; */
@@ -68,21 +75,21 @@ void			add_link(void)
 /* 			tmp = tmp->next; */
 /* 		tmp->next = new; */
 /* 	} */
-/* } */
+}
 
 void			print_step(void)
 {
-//	t_oper		*tmp;
+	t_oper		*tmp;
 
 	ft_putstr(KMAG);
 	ft_putchar('\n');
-/* 	tmp = S->oper; */
-/* 	while (tmp) */
-/* 	{ */
-/* 		ft_putstr(tmp->s); */
-/* 		tmp = tmp->next; */
+	tmp = S->oper;
+	while (tmp)
+	{
+		ft_putstr(tmp->s);
+		tmp = tmp->next;
 		
-/* 	} */
+	}
 	ft_putchar('\n');
 	ft_putstr("Number of steps : ");
 	ft_putnbrendl(S->count);

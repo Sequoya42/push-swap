@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/18 03:48:41 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 22:55:12 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 23:22:53 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int				ft_check_swap(void)
 		tmp1 = S->lst->next->next;
 		tmp2 = tmp1->next;
 		 if (S->lst->nb > S->lst->next->nb)
+		 {
 			ft_sa();
+			add_oper("sa ");
+		 }
 		 else if (S->lst->nb > S->lst->next->nb && tmp2->nb < tmp1->nb)
 		{
 			ft_pb();
@@ -30,6 +33,7 @@ int				ft_check_swap(void)
 			ft_ss();
 			ft_pa();
 			ft_pa();
+			add_oper("pb pb ss pa pa ");
 		}
 	}
 	return (0);
