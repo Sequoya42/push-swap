@@ -1,0 +1,150 @@
+	while (S->tab[i])
+		new->nb = ft_atoi(S->tab[i]);
+		if (S->lst == NULL)
+			S->lst = new;
+			S->last = new;
+			S->first = S->lst;
+			S->last->next = new;
+			new->prev = S->last;
+			S->last = new;
+	write(1, S->oper, ft_strlen(S->oper) -1);
+	while (S->oper[i])
+		if (S->oper[i] == ' ')
+	tmp = S->last;
+	tmp = S->lb;
+	write(1, S->oper, ft_strlen(S->oper) -1);
+	if (!S->lst)
+    tmp = S->last;
+    S->min = S->last->nb;
+    while (S->last->prev)
+        if (S->min > S->last->nb)
+            S->min = S->last->nb;
+        S->last = S->last->prev;
+//	if (S->min > S->lst->nb)
+//		S->min = S->lst->nb;
+    S->last = tmp;
+    tmp = S->last;
+    if (!tmp->prev && !S->lb)
+            S->move = tmp;
+    if (!S->lb)
+	S->lst = NULL;
+	S->lb = NULL;
+	S->oper = ft_strnew(1);
+	if (S->tab == NULL)
+	S->nepa = ft_nb_tab(S->tab);
+	S->tab = ft_strdup_tab(av + 1);
+	if (S->last->nb == S->move->nb)
+	else if (S->last->nb < S->last->prev->nb)
+	else if (S->last->prev->nb == S->move->nb)
+	if (S->lb_last->prev)
+		S->lb_last = S->lb_last->prev;
+		S->lb_last->next = NULL;
+		S->lb_last = NULL;
+		S->lb = NULL;
+	S->nepa += 1;
+	if (!S->lb)
+	new->nb = S->lb_last->nb;
+	if (S->lst == NULL)
+		S->lst = new;
+		S->last = new;
+		S->lst->prev = new;
+		new->next = S->lst;
+		S->lst = new;
+	S->oper = ft_strjoin(S->oper, "pa ");
+	if (S->lst->next)
+		S->lst = S->lst->next;
+		S->lst->prev = NULL;
+		S->last = NULL;
+		S->lst = NULL;
+	S->nepa -= 1;
+	if (!S->lst)
+	new->nb = S->lst->nb;
+	if (S->lb == NULL)
+		S->lb = new;
+		S->lb_last = new;
+		S->lb_last->next = new;
+		new->prev = S->lb_last;
+		S->lb_last = new;
+	S->oper = ft_strjoin(S->oper, "pb ");
+	if (S->lst->next->next)
+		tmp1 = S->lst->next->next;
+		 if (S->lst->nb > S->lst->next->nb)
+		 else if (S->lst->nb > S->lst->next->nb && tmp2->nb < tmp1->nb)
+/* 	ft_putnbrendl(S->min); */
+/* 	ft_putnbrendl(S->move->nb); */
+	if (!S->last || !S->last->prev)
+	if (!S->last->prev->prev)
+	tmp = S->last;
+	tmp->next = S->lst;
+	S->last = S->last->prev;
+	S->last->next = NULL;
+	S->lst->prev = tmp;
+	S->lst = S->lst->prev;
+	S->oper = ft_strjoin(S->oper, "rra ");
+	if (!S->lb || !S->lb->next)
+	if (!S->lb->next->next)
+	tmp = S->lb;
+	tmp->prev = S->lb_last;
+	S->lb = S->lb->next;
+	S->lb->prev = NULL;
+	S->lb_last->next = tmp;
+	S->lb_last = S->lb_last->next;
+	S->oper = ft_strjoin(S->oper, "rrb ");
+	S->oper = ft_strsub(S->oper, 0, ft_strlen(S->oper) - 6);
+	S->oper = ft_strjoin(S->oper, "rrr ");
+	if (!S->last || !S->last->prev)
+	if (!S->last->prev->prev)
+	S->last->next = S->lst;
+	tmp = S->last;
+	S->last = S->lst;
+	S->lst = S->lst->next;
+	S->lst->prev = NULL;
+	S->last->prev = tmp;
+	S->oper = ft_strjoin(S->oper, "ra ");
+	if (!S->lb || !S->lb->next)
+	if (!S->lb->next->next)
+	S->lb->prev = S->lb_last;
+	tmp = S->lb;
+	S->lb = S->lb_last;
+	S->lb->prev->next = NULL;
+	S->lb_last = S->lb_last->prev;
+	S->lb->next = tmp;
+	S->oper = ft_strjoin(S->oper, "rb ");
+	S->oper = ft_strsub(S->oper, 0, ft_strlen(S->oper) - 6);
+	S->oper = ft_strjoin(S->oper, "rr ");
+	if (!S->last)
+	tmp = S->last;
+		if (tmp->nb == S->move->nb)
+			ft_putnbrendl(S->move->nb);
+			while (tmp != S->lst)
+	i = S->nepa;
+	if (!S->lst || !S->lst->next)
+		while (S->lb)
+	tmp = S->last;
+	if (S->lb)
+		while (S->lb)
+	if (!S->lst || !S->lst->next)
+	tmp = S->lst->nb;
+	S->lst->nb = S->lst->next->nb;
+	S->lst->next->nb = tmp;
+	S->oper = ft_strjoin(S->oper, "sa ");
+	if (!S->lb || !S->lb->next)
+	tmp = S->lb->nb;
+	S->lb->nb = S->lb->next->nb;
+	S->lb->next->nb = tmp;
+	S->oper = ft_strjoin(S->oper, "sb ");
+	S->oper = ft_strsub(S->oper, 0, ft_strlen(S->oper) - 6);
+	S->oper = ft_strjoin(S->oper , "ss ");
+	tmp = ft_strnew(ft_strlen(S->tab[i]));
+		tmp[l] = S->tab[i][k++];
+	if (S->tab[i][0] == '-' ? ft_atoi(S->tab[i] + 6) > 83648 :
+		ft_atoi(S->tab[i] + 5) > 83647)
+	if (MP ? ft_strlen(S->tab[i]) > 11 : ft_strlen(S->tab[i]) > 10)
+	else if (MP ? ft_strlen(S->tab[i]) == 11 : ft_strlen(S->tab[i]) == 10)
+	while (S->tab[i][j])
+		if (!ft_isdigit(S->tab[i][j]))
+		if (!ft_strcmp(S->tab[i], tmp[l]))
+	if ((tmp = malloc(sizeof(char *) * (ft_nb_tab(S->tab) + 1))) == NULL)
+	while (k <= ft_nb_tab(S->tab))
+	while (S->tab[i])
+		tmp[i] = ft_strdup(S->tab[i]);

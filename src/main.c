@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/12 17:21:57 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/20 18:12:05 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 01:36:36 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ int		ft_init_all(void)
 
 int			main(int ac, char **av)
 {
+
 	if (ac == 1)
 		return (ft_error(NULL, NULL, "too few arguments"));
 	S->tab = ft_strdup_tab(av + 1);
 	if (ft_init_all() == -1)
 		return (-1);
-	print_list();
 	while (ft_resolve() != 1)
 		print_list();
-	print_step();
+		print_step();
 	return (0);
 }
