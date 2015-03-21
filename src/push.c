@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 22:14:36 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 00:57:12 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 22:58:38 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 static void		ft_pa_next(void)
 {
+	t_lst		*tmp;
+
+	tmp = S->lb_last;
 	if (S->lb_last->prev)
 	{
 		S->lb_last = S->lb_last->prev;
@@ -25,6 +28,8 @@ static void		ft_pa_next(void)
 		S->lb = NULL;
 	}
 	S->nepa += 1;
+	++S->count;
+	free(tmp);
 }
 
 void			ft_pa(void)
@@ -49,11 +54,13 @@ void			ft_pa(void)
 		S->lst = new;
 	}
 	ft_pa_next();
-	S->oper = ft_strjoin(S->oper, "pa ");
 }
 
 static void		ft_pb_next(void)
 {
+	t_lst		*tmp;
+
+	tmp = S->lst;
 	if (S->lst->next)
 	{
 		S->lst = S->lst->next;
@@ -65,6 +72,8 @@ static void		ft_pb_next(void)
 		S->lst = NULL;
 	}
 	S->nepa -= 1;
+	S->count++;
+	free(tmp);
 }
 
 void			ft_pb(void)
@@ -89,5 +98,4 @@ void			ft_pb(void)
 		S->lb_last = new;
 	}
 	ft_pb_next();
-	S->oper = ft_strjoin(S->oper, "pb ");
 }

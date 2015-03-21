@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/18 05:31:47 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 02:23:02 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 22:43:57 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int             check_solved(void)
         return (1);
     while (tmp->prev)
     {
-        if (tmp->nb == S->min)// Ten es ici
+        if (tmp->nb == S->min)
         {
             S->move = tmp;
             return (0);

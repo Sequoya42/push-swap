@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 17:56:31 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/20 17:49:24 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 05:59:34 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,13 @@ void			add_link(void)
 	}
 }
 
+void			print_current(void)
+{
+	ft_putstr(KMAG);
+	ft_putchar('\n');
+	write(1, S->oper, ft_strlen(S->oper) -1);
+	ft_putchar('\n');
+}
 void			print_step(void)
 {
 	int i;
@@ -56,10 +63,7 @@ void			print_step(void)
 
 	i = 0;
 	j = 0;
-	ft_putstr(KMAG);
-	ft_putchar('\n');
-	write(1, S->oper, ft_strlen(S->oper) -1);
-	ft_putchar('\n');
+	//print_current();
 	ft_putstr(KCYN);
 	ft_putstr("Number of operations : ");
 	while (S->oper[i])
@@ -71,13 +75,14 @@ void			print_step(void)
 	ft_putnbrendl(j);
 }
 
+
 void			print_list(void)
 {
 	t_lst		*tmp;
 
 	ft_putstr(KGRN);
 	ft_putstr("pile a : ");
-	ft_putstr(KNRM);
+//	ft_putstr(KNRM);
 	tmp = S->last;
 	while (tmp)
 	{
@@ -85,19 +90,17 @@ void			print_list(void)
 		tmp = tmp->prev;
 	}
 	ft_putchar('\n');
-	ft_putstr(KWHT);
+	ft_putstr(KBLU);
 	ft_putstr("pile b : ");
-	ft_putstr(KNRM);
+//	ft_putstr(KNRM);
 	tmp = S->lb;
 	while (tmp)
 	{
 		ft_putnbrn(tmp->nb);
 		tmp = tmp->next;
 	}
-	ft_putstr(KMAG);
 	ft_putchar('\n');
-	write(1, S->oper, ft_strlen(S->oper) -1);
-	ft_putchar('\n');
+//	print_current();
 
 }
 /* ************************************************************************** */
@@ -108,7 +111,7 @@ void			print_list(void)
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/18 05:31:47 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 01:02:08 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 02:23:02 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,8 +131,9 @@ void            ft_get_min(void)
             S->min = S->last->nb;
         S->last = S->last->prev;
     }
-//	if (S->min > S->lst->nb)
-//		S->min = S->lst->nb;
+
+	if (S->min > S->lst->nb)
+		S->min = S->lst->nb;
     S->last = tmp;
 }
 
@@ -142,14 +146,16 @@ int             check_solved(void)
         return (1);
     while (tmp->prev)
     {
-        if (tmp->nb < tmp->prev->nb)// Ten es ici
+        if (tmp->nb == S->min)// Ten es ici
         {
             S->move = tmp;
             return (0);
         }
         tmp = tmp->prev;
     }
-    if (!S->lb)
+	if (tmp->nb == S->min)
+		S->move = tmp;
+    if (!tmp->prev && !S->lb)
         return (1);
     return (0);
 }
@@ -161,13 +167,14 @@ int             check_solved(void)
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/12 17:21:57 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 01:11:33 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 05:56:11 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* RETIRE les fichiers de la libft que tu utilises pas, etre sur d'utiliser que malloc free write et rien dautre. laisse que ce aue tu utilise supprime le reste */
+/* regler lenroule de 200 elements 20 GO de memoire tout ca tout ca */
 
 t_swap		*singleton(void)
 {
@@ -179,6 +186,7 @@ t_swap		*singleton(void)
 int		ft_init_all(void)
 {
 	S->lst = NULL;
+	S->move = NULL;
 	S->lb = NULL;
 	S->oper = ft_strnew(1);
 	if (S->tab == NULL)
@@ -192,15 +200,17 @@ int		ft_init_all(void)
 
 int			main(int ac, char **av)
 {
+
 	if (ac == 1)
 		return (ft_error(NULL, NULL, "too few arguments"));
 	S->tab = ft_strdup_tab(av + 1);
 	if (ft_init_all() == -1)
 		return (-1);
-	print_list();
 	while (ft_resolve() != 1)
-		;
+		print_list();
+
 	print_step();
+	print_list();
 	return (0);
 }
 /* ************************************************************************** */
@@ -339,7 +349,7 @@ void			ft_pb(void)
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/18 03:48:41 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 01:06:53 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 05:46:45 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -370,16 +380,18 @@ int				ft_check_swap(void)
 
 int			ft_resolve(void)
 {
-	ft_check_pa();
+
+	if (ft_check_pa() == 1)
+		return (1);
+ 	ft_get_min();
 	if (check_solved())
 		return (1);
 	ft_check_pb();
-/* 	ft_get_min(); */
  	ft_check_swap();
-/* 	ft_check_rev(); */
+//	sleep(1);
+ 	ft_check_rev(); 
 /* 	ft_putnbrendl(S->min); */
 /* 	ft_putnbrendl(S->move->nb); */
-	sleep(1);
 	return (0);
 }
 
@@ -517,7 +529,7 @@ void			ft_rr(void)
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/18 06:11:23 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 01:11:23 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 02:38:13 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -526,25 +538,37 @@ void			ft_rr(void)
 void		ft_check_pb(void)
 {
 	t_lst	*tmp;
+	int		i;
+
+	i = 0;
 	if (!S->last)
 		return ;
+
 	tmp = S->last;
 	while (tmp)
 	{
-		if (tmp->nb == S->move->nb)
+
+		if (S->move && S->move->nb == S->lst->nb)
+			ft_pb();
+		if (S->move && tmp->nb == S->move->nb)
 		{
-			ft_putnbrendl(S->move->nb);
 			while (tmp != S->lst)
-				ft_rra(); // if blabla ra else rra
+			{
+				if (i < (S->nepa / 2))
+					ft_rra();
+				else
+					ft_ra();
+			}
 			ft_pb();
 			return ;
 		}
 		tmp = tmp->prev;
+		++i;
 	}
 
 }
 
-void		ft_check_pa(void)
+int		ft_check_pa(void)
 {
 	t_lst	*tmp;
 	int		i;
@@ -559,18 +583,16 @@ void		ft_check_pa(void)
 	while (tmp->prev)
 	{
 		if (tmp->nb < tmp->prev->nb)
-			return ;
+			return (0);
 		tmp = tmp->prev;
 	}
 	if (S->lb)
 	{
 		while (S->lb)
-		{
 			ft_pa();
-
-		}
-//		exit(0);
 	}
+	ft_get_min();
+	return (check_solved());
 }
 /* ************************************************************************** */
 /*                                                                            */

@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/11 18:10:33 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 02:09:34 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 22:56:52 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@
 #define MP S->tab[i][0] == '-' || S->tab[i][0] == '+'
 
 typedef struct		s_lst	t_lst;
+typedef struct		s_oper	t_oper;
 
 typedef struct		s_swap
 {
 	int				min;
 	int				nepa;
-	char			*oper;
+	int				count;
 	char			**tab;
 	t_lst			*lst;
  	t_lst			*first; 
@@ -35,7 +36,13 @@ typedef struct		s_swap
   	t_lst			*move;
  }					t_swap;
 
-struct s_lst
+struct	s_oper
+{
+	char			*s;
+	t_oper			*next;
+};
+
+struct	s_lst
 {
 	int				nb;
 	t_lst			*next;
@@ -47,6 +54,7 @@ t_swap				*singleton(void);
 int					verif_tab(void);
 
 void				add_link(void);
+void				add_oper(char *s);
 void				print_list(void);
 
 void				ft_sa(void);

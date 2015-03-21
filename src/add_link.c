@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 17:56:31 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/20 17:49:24 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 22:57:34 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,26 +49,43 @@ void			add_link(void)
 	}
 }
 
+/* void			add_oper(char *s) */
+/* { */
+/* 	t_oper		*tmp; */
+/* 	t_oper		*new; */
+
+/* 	return ; */
+/* 	if (!(new = malloc(sizeof(t_oper)))) */
+/* 		return ; */
+/* 	new->s = s; */
+/* 	new->next = NULL; */
+/* 	if (S->oper == NULL) */
+/* 		S->oper = new; */
+/* 	else */
+/* 	{ */
+/* 		tmp = S->oper; */
+/* 		while (tmp->next) */
+/* 			tmp = tmp->next; */
+/* 		tmp->next = new; */
+/* 	} */
+/* } */
+
 void			print_step(void)
 {
-	int i;
-	int j;
+//	t_oper		*tmp;
 
-	i = 0;
-	j = 0;
 	ft_putstr(KMAG);
 	ft_putchar('\n');
-	write(1, S->oper, ft_strlen(S->oper) -1);
+/* 	tmp = S->oper; */
+/* 	while (tmp) */
+/* 	{ */
+/* 		ft_putstr(tmp->s); */
+/* 		tmp = tmp->next; */
+		
+/* 	} */
 	ft_putchar('\n');
-	ft_putstr(KCYN);
-	ft_putstr("Number of operations : ");
-	while (S->oper[i])
-	{
-		if (S->oper[i] == ' ')
-			++j;
-		++i;
-	}
-	ft_putnbrendl(j);
+	ft_putstr("Number of steps : ");
+	ft_putnbrendl(S->count);
 }
 
 void			print_list(void)
@@ -77,7 +94,6 @@ void			print_list(void)
 
 	ft_putstr(KGRN);
 	ft_putstr("pile a : ");
-	ft_putstr(KNRM);
 	tmp = S->last;
 	while (tmp)
 	{
@@ -85,18 +101,14 @@ void			print_list(void)
 		tmp = tmp->prev;
 	}
 	ft_putchar('\n');
-	ft_putstr(KWHT);
+	ft_putstr(KBLU);
 	ft_putstr("pile b : ");
-	ft_putstr(KNRM);
 	tmp = S->lb;
 	while (tmp)
 	{
 		ft_putnbrn(tmp->nb);
 		tmp = tmp->next;
 	}
-	ft_putstr(KMAG);
+	ft_putstr(KNRM);
 	ft_putchar('\n');
-	write(1, S->oper, ft_strlen(S->oper) -1);
-	ft_putchar('\n');
-
 }
