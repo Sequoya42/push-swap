@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/18 06:11:23 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 01:46:35 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 02:38:13 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,15 @@ void		ft_check_pb(void)
 	i = 0;
 	if (!S->last)
 		return ;
+
 	tmp = S->last;
 	while (tmp)
 	{
-			if (S->move->nb == S->lst->nb)
-				ft_pb();
-		if (tmp->nb == S->move->nb)
-		{
 
+		if (S->move && S->move->nb == S->lst->nb)
+			ft_pb();
+		if (S->move && tmp->nb == S->move->nb)
+		{
 			while (tmp != S->lst)
 			{
 				if (i < (S->nepa / 2))
@@ -44,7 +45,7 @@ void		ft_check_pb(void)
 
 }
 
-void		ft_check_pa(void)
+int		ft_check_pa(void)
 {
 	t_lst	*tmp;
 	int		i;
@@ -59,15 +60,14 @@ void		ft_check_pa(void)
 	while (tmp->prev)
 	{
 		if (tmp->nb < tmp->prev->nb)
-			return ;
+			return (0);
 		tmp = tmp->prev;
 	}
 	if (S->lb)
 	{
 		while (S->lb)
-		{
 			ft_pa();
-
-		}
 	}
+	ft_get_min();
+	return (check_solved());
 }

@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/11 18:10:33 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 02:09:34 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/20 22:04:20 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,11 @@ void				ft_rrb(void);
 void				ft_rrr(void);
 
 void				ft_check_pb(void);
-
+void				ft_check_pa(void);
 void				ft_get_min(void);
 void				print_step(void);
 
 int					ft_resolve(void);
-int					ft_check_pa(void);
 int					check_solved(void);
 int					ft_check_rev(void);
 

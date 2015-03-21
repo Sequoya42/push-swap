@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/18 03:48:41 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 01:51:06 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 02:41:40 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,16 @@ int				ft_check_swap(void)
 
 int			ft_resolve(void)
 {
-	ft_check_pa();
+
+	if (ft_check_pa() == 1)
+		return (1);
  	ft_get_min();
 	if (check_solved())
 		return (1);
 	ft_check_pb();
  	ft_check_swap();
-	sleep(1);
-/* 	ft_check_rev(); */
+//	sleep(1);
+// 	ft_check_rev(); 
 /* 	ft_putnbrendl(S->min); */
 /* 	ft_putnbrendl(S->move->nb); */
 	return (0);

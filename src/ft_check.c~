@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/18 05:31:47 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 02:23:02 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 02:15:47 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void            ft_get_min(void)
             S->min = S->last->nb;
         S->last = S->last->prev;
     }
-
 	if (S->min > S->lst->nb)
 		S->min = S->lst->nb;
     S->last = tmp;
