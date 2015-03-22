@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/12 17:43:26 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 17:30:41 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 23:55:39 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int			ft_unvalid(int i)
 	return (0);
 }
 
-int					ft_doublons(int i, char **tmp)
+static int				ft_doublons(int i, char **tmp)
 {
 	int				l;
 

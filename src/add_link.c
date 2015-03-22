@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 17:56:31 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 23:25:51 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/22 02:32:44 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,15 +81,19 @@ void			print_step(void)
 {
 	t_oper		*tmp;
 
-	ft_putstr(KMAG);
-	ft_putchar('\n');
-	tmp = S->oper;
-	while (tmp)
+	if (S->flag[0] == 0)
 	{
-		ft_putstr(tmp->s);
-		tmp = tmp->next;
-		
+		ft_putstr(KMAG);
+		ft_putchar('\n');
+		tmp = S->oper;
+		while (tmp)
+		{
+			ft_putstr(tmp->s);
+			tmp = tmp->next;
+			
+		}
 	}
+	ft_putstr(KYEL);
 	ft_putchar('\n');
 	ft_putstr("Number of steps : ");
 	ft_putnbrendl(S->count);
@@ -99,6 +103,8 @@ void			print_list(void)
 {
 	t_lst		*tmp;
 
+	if (S->flag[2] == 0)
+		return ;
 	ft_putstr(KGRN);
 	ft_putstr("pile a : ");
 	tmp = S->last;

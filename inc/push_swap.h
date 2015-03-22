@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/11 18:10:33 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 23:20:41 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/21 23:53:04 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct		s_swap
 	int				min;
 	int				nepa;
 	int				count;
+	int				flag[5];
 	char			**tab;
 	t_oper			*oper;
 	t_oper			*last_oper;
