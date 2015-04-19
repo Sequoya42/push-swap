@@ -6,20 +6,11 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 17:56:31 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/22 02:32:44 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/23 06:41:33 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-#define KNRM  "\x1B[0m"
-#define KRED  "\x1B[31m"
-#define KGRN  "\x1B[32m"
-#define KYEL  "\x1B[33m"
-#define KBLU  "\x1B[34m"
-#define KMAG  "\x1B[35m"
-#define KCYN  "\x1B[36m"
-#define KWHT  "\x1B[37m"
 
 void			add_link(void)
 {
@@ -51,7 +42,6 @@ void			add_link(void)
 
 void			add_oper(char *s)
 {
-//	t_oper		*tmp;
 	t_oper		*new;
 
 	if (!(new = malloc(sizeof(t_oper))))
@@ -68,35 +58,33 @@ void			add_oper(char *s)
 		S->last_oper->next = new;
 		S->last_oper = S->last_oper->next;
 	}
-/* 	else */
-/* 	{ */
-/* 		tmp = S->oper; */
-/* 		while (tmp->next) */
-/* 			tmp = tmp->next; */
-/* 		tmp->next = new; */
-/* 	} */
 }
 
 void			print_step(void)
 {
 	t_oper		*tmp;
+	char		*last;
 
-	if (S->flag[0] == 0)
+	if (S->flag[0] == 0 && S->oper != NULL)
 	{
-		ft_putstr(KMAG);
-		ft_putchar('\n');
+		S->flag[1] == 1 ? ft_putstr(KMAG) : ft_putstr(KNRM);
 		tmp = S->oper;
-		while (tmp)
+		while (tmp->next)
 		{
 			ft_putstr(tmp->s);
 			tmp = tmp->next;
-			
 		}
+		last = ft_strsub(tmp->s, 0, ft_strlen(tmp->s) - 1);
+		ft_putstr(last);
+		ft_putchar('\n');
 	}
-	ft_putstr(KYEL);
-	ft_putchar('\n');
-	ft_putstr("Number of steps : ");
-	ft_putnbrendl(S->count);
+	S->flag[1] == 1 ? ft_putstr(KYEL) : ft_putstr(KNRM);
+	if (S->flag[4] == 1)
+	{
+		ft_putstr("Number of steps : ");
+		ft_putnbrendl(S->count);
+	}
+	ft_putstr(KNRM);
 }
 
 void			print_list(void)
@@ -105,7 +93,7 @@ void			print_list(void)
 
 	if (S->flag[2] == 0)
 		return ;
-	ft_putstr(KGRN);
+	S->flag[1] == 1 ? ft_putstr(KGRN) : ft_putstr(KNRM);
 	ft_putstr("pile a : ");
 	tmp = S->last;
 	while (tmp)
@@ -114,7 +102,7 @@ void			print_list(void)
 		tmp = tmp->prev;
 	}
 	ft_putchar('\n');
-	ft_putstr(KBLU);
+	S->flag[1] == 1 ? ft_putstr(KBLU) : ft_putstr(KNRM);
 	ft_putstr("pile b : ");
 	tmp = S->lb;
 	while (tmp)
@@ -123,5 +111,5 @@ void			print_list(void)
 		tmp = tmp->next;
 	}
 	ft_putstr(KNRM);
-	ft_putchar('\n');
+	ft_putstr("\n\n");
 }

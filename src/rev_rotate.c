@@ -6,23 +6,18 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/17 00:45:01 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 22:38:54 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/23 07:15:51 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void            ft_rra(void)
+void			ft_rra(void)
 {
 	t_lst		*tmp;
 
 	if (!S->last || !S->last->prev)
 		return ;
-	if (!S->last->prev->prev)
-	{
-		ft_sa();
-		return ;
-	}
 	tmp = S->last;
 	tmp->next = S->lst;
 	S->last = S->last->prev;
@@ -33,9 +28,9 @@ void            ft_rra(void)
 	S->count++;
 }
 
-void            ft_rrb(void)
+void			ft_rrb(void)
 {
-    t_lst       *tmp;
+	t_lst		*tmp;
 
 	if (!S->lb || !S->lb->next)
 		return ;
@@ -54,9 +49,9 @@ void            ft_rrb(void)
 	S->count++;
 }
 
-void            ft_rrr(void)
+void			ft_rrr(void)
 {
-    ft_rra();
-    ft_rrb();
-	S->count++;
+	ft_rra();
+	ft_rrb();
+	S->count--;
 }

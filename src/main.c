@@ -6,25 +6,23 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/12 17:21:57 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/22 02:31:49 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/23 06:56:17 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* RETIRE les fichiers de la libft que tu utilises pas, etre sur d'utiliser que malloc free write et rien dautre. laisse que ce aue tu utilise supprime le reste */
-/* regler lenroule de 200 elements 20 GO de memoire tout ca tout ca */
-
-t_swap		*singleton(void)
+t_swap				*singleton(void)
 {
 	static t_swap	swap;
 
 	return (&swap);
 }
 
-int		ft_init_all(void)
+int					ft_init_all(void)
 {
 	S->lst = NULL;
+	S->last = NULL;
 	S->move = NULL;
 	S->lb = NULL;
 	S->count = 0;
@@ -37,9 +35,9 @@ int		ft_init_all(void)
 	return (0);
 }
 
-static int		  ft_flags(char *av)
+static int			ft_flags(char *av)
 {
-	int i;
+	int				i;
 
 	i = 0;
 	while (i < 5)
@@ -58,31 +56,30 @@ static int		  ft_flags(char *av)
 		}
 		i = 0;
 		while (i < 5)
-			if (S->flag[i] == 1)
+			if (S->flag[i++] == 1)
 				return (1);
 	}
 	return (0);
 }
 
-int			main(int ac, char **av)
+int					main(int ac, char **av)
 {
-
 	if (ac == 1)
-		return (ft_error(NULL, NULL, "too few arguments"));
+		return (ft_error(NULL, NULL, ""));
 	if (ft_flags(av[1]) == 1)
+	{
+		if (av[2] == '\0')
+			return (ft_error(NULL, NULL, "Error"));
 		S->tab = ft_strdup_tab(av + 2);
+	}
 	else
 		S->tab = ft_strdup_tab(av + 1);
 	if (ft_init_all() == -1)
 		return (-1);
 	print_list();
 	while (ft_resolve() != 1)
-	{
 		print_list();
-	}
 	print_list();
 	print_step();
 	return (0);
 }
-
-/* ./push_swap `ruby -e "puts (-1000..1000).to_a.shuffle.join(' ')"` */

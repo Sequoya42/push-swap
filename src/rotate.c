@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/16 23:11:41 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 22:08:57 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/23 07:33:41 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,6 @@ void			ft_ra(void)
 
 	if (!S->last || !S->last->prev)
 		return ;
-	if (!S->last->prev->prev)
-	{
-		ft_sa();
-		return ;
-	}
 	S->last->next = S->lst;
 	tmp = S->last;
 	S->last = S->lst;
@@ -56,5 +51,5 @@ void			ft_rr(void)
 {
 	ft_ra();
 	ft_rb();
-	S->count++;
+	S->count--;
 }

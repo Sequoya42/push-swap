@@ -6,7 +6,7 @@
 /*   By: rbaum <rbaum@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/12 17:43:26 by rbaum             #+#    #+#             */
-/*   Updated: 2015/03/21 23:55:39 by rbaum            ###   ########.fr       */
+/*   Updated: 2015/03/23 06:03:41 by rbaum            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ static int			ft_unvalid(int i)
 		if ((verif_itoa(i)) == -1)
 			return (-1);
 	}
+	if (S->tab[i][0] == '0' && S->tab[i][1] != '\0')
+		return (ft_error(NULL, NULL, "Error"));
 	while (S->tab[i][j])
 	{
 		if (!ft_isdigit(S->tab[i][j]))
@@ -57,7 +59,7 @@ static int			ft_unvalid(int i)
 	return (0);
 }
 
-static int				ft_doublons(int i, char **tmp)
+static int			ft_doublons(int i, char **tmp)
 {
 	int				l;
 
